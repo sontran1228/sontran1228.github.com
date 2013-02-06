@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" media="screen" href="../css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="../css/layouts.css" />
+<link rel="stylesheet" type="text/css" href="../css/jquery-ui-1.9.2.css" />
+<script type="text/javascript" src="../js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="../js/bootstrap.js"></script>
+<script type="text/javascript" src="../js/jquery-ui-1.9.2.js"></script>
+<script type="text/javascript" src="../js/jquery.sticky.js"></script>
+<script type="text/javascript" src="../js/drag-drop.js"></script>
+<title>In Place Editing</title>
+<script type="text/javascript">
+	$(function() {
+		var zonesInLayout = ['#zone1','#zone2','#zone3', '#zone4', "#zone5", "#zone6", "#zone7", "#zone8"];
+		$('#AddministratorApp').sticky({topSpacing:1});
+		uiDragDrop('DragObjectPortlet', zonesInLayout);
+	});
+</script>
+</head>
+<body>
+	<div id="AddministratorApp">
+		<div id="Administration-ApplicationRegistryPortlet" class="DragObjectPortlet">
+			<div>
+				<img src="../css/images/application.png" />
+				<div>
+					<label>Application Registry</label>
+				</div>
+			</div>
+		</div>
+		<div id="Administration-AccountRegistryPortlet" class="DragObjectPortlet">
+			<div>
+				<img src="../css/images/account.png" />
+				<div>
+					<label>Account Management</label>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="UIPage" class="container-fluid"  style="border: 1px solid #CCC;">
+		<div id="onezone" class="outerzone">
+			<div class="row-fluid">
+				<div id="zone1" class="span12">
+				</div>
+			</div>
+
+			<div class="row-fluid">
+				<div id="zone2" class="span4">
+				</div>
+				<div id="zone3" class="span8">
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div id="zone4" class="span12">
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div id="zone5" class="span3">
+				</div>
+				<div id="zone6" class="span3">
+				</div>
+				<div id="zone7" class="span3">
+				</div>
+				<div id="zone8" class="span3">
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

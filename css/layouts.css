@@ -1,0 +1,31 @@
+@CHARSET "UTF-8";
+
+#AddministratorApp {
+	background-color: #EEE8AA;
+}
+
+.outerzone {
+	border: 1px solid red;
+}
+
+.application {
+	border: 1px solid #CCC;
+	text-align: center;
+}
+
+.span1,.span2,.span3,.span4,.span5,.span6,.span7,.span8,.span9,.span10,.span11,.span12
+	{
+	border: 1px solid black;
+}
+
+.row-fluid [id*="zone"] {
+	min-height: 80px;
+}
+
+.ui-state-highlight {
+	height: 60px;
+}
+
+.no-space [class*="span"] {
+	margin-left: 0;
+}

@@ -1,0 +1,66 @@
+@CHARSET "UTF-8";
+
+#UIPageEditor {
+	width: 350px;
+	height: 500px;
+	border: 1px solid #CCC;
+	z-index: 1;
+	position: absolute;
+	left: 910px;
+}
+
+#UIPageContent {
+	border: 1px solid #CCC;
+	z-index: 0;
+	max-width: 900px;
+}
+
+#AddministratorApp {
+	margin-bottom: 20px;
+	background-color: #EEE8AA;
+}
+
+/* TabsContainer css */
+.UITabsContainer {
+	height: 50px;
+	border-bottom: 1px solid #CCC;
+}
+
+.UITab {
+	height: 100%;
+	width: 50px;
+	text-align: center;
+	font-size: 11px;
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	float: left;
+	border-right: 1px solid #CCC;
+}
+
+.UITab :HOVER {
+	cursor: pointer;
+}
+
+.UITab div:FIRST-CHILD {
+	margin-top: 10px
+}
+
+/* Contextual Search Contaier css */
+.UIContextualSearchContainer {
+	
+}
+
+.UISearch {
+	margin: 10px;
+}
+
+.UISearch input {
+	border-radius: 12px;
+	background: url("images/search.png") no-repeat 4px 4px;
+	padding: 4px 4px 4px 22px;
+	border: 1px solid #CCC;
+	width: 90%;
+}
+
+.AppsContainer {
+	height: 200px;
+}
