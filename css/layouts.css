@@ -2,6 +2,17 @@
 
 #AddministratorApp {
 	background-color: #EEE8AA;
+	margin-bottom: 20px;
+	height: 80px;
+}
+
+#zone1,#zone2,#zone3,#zone4 {
+	margin-bottom: 10px;	
+}
+
+.DragObjectPortlet {
+	width: 150px;
+	float: left;
 }
 
 .outerzone {
@@ -23,7 +34,7 @@
 }
 
 .ui-state-highlight {
-	height: 60px;
+	height: 73px;
 }
 
 .no-space [class*="span"] {

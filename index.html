@@ -9,19 +9,21 @@
 <script type="text/javascript" src="js/jquery-1.8.3.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.9.2.js"></script>
-<script type="text/javascript" src="js/jquery.sticky.js"></script>
 <script type="text/javascript" src="js/drag-drop.js"></script>
 <title>In Place Editing</title>
 <script type="text/javascript">
 	$(function() {
 		var zonesInLayout = ['#zone1','#zone2','#zone3', '#zone4', "#zone5", "#zone6", "#zone7", "#zone8"];
-		$('#AddministratorApp').sticky({topSpacing:1});
 		uiDragDrop('DragObjectPortlet', zonesInLayout);
 	});
 </script>
 </head>
 <body>
 	<div id="AddministratorApp">
+		<div style="float: left; margin: 20px;">
+			<p style="font-size: 24px;">Drag these &rarr;</p>
+		</div>
+	
 		<div id="Administration-ApplicationRegistryPortlet" class="DragObjectPortlet">
 			<div>
 				<img src="css/images/application.png" />
@@ -40,8 +42,9 @@
 		</div>
 	</div>
 	
-	<div id="UIPage" class="container-fluid"  style="border: 1px solid #CCC;">
-		<div id="onezone" class="outerzone">
+	<p style="text-align: center; font-size: 24px;">Drop here<br/>&darr;</p>
+	<div id="UIPage" class="container-fluid" style="border: 1px solid red; padding-top: 2px; padding-bottom: 2px;">
+		<div id="onezone" style="border: 1px solid #CCC;">
 			<div class="row-fluid">
 				<div id="zone1" class="span12">
 				</div>

@@ -23,7 +23,7 @@ $(function() {
 			}
 		});
 		
-		// init drop
+		// init drop		
 		$(zonesInLayoutString).droppable({
 			accept: ":not(.ui-sortable-helper)",
 			tolerance : 'touch'
@@ -32,43 +32,47 @@ $(function() {
 			items: ".application",
 			placeholder: "ui-state-highlight",
 			cursor: "move",
+			over : function(event, ui) {
+				$(this).css('height','auto');
+			},
+			out : function(event, ui) {
+				setHeight();
+			},
 			stop : function(event, ui) {
 				if(!ui.item.hasClass('application')) {
 					var _item = ui.item;
 					_item.removeClass("DragObjectPortlet ui-draggable").addClass("application");
 					_item.attr('id', applicationId + "-" + Math.floor(Math.random() * 1000));
 				}
-//				$(this).css('height','auto');
-//				
-//				var _temp = 0;
-//				if(_temp <= $("#zone2").height()) {
-//					_temp = $("#zone2").height();
-//				}
-//				if(_temp <= $("#zone3").height()) {
-//					_temp = $("#zone3").height();
-//				}
-//				$("#zone2").height(_temp);
-//				$("#zone3").height(_temp);
-//				
-//				_temp = 0;
-//				if(_temp <= $("#zone5").height()) {
-//					_temp = $("#zone5").height();
-//				}
-//				if(_temp <= $("#zone6").height()) {
-//					_temp = $("#zone6").height();
-//				}
-//				if(_temp <= $("#zone7").height()) {
-//					_temp = $("#zone7").height();
-//				}
-//				if(_temp <= $("#zone8").height()) {
-//					_temp = $("#zone8").height();
-//				}
-//				$("#zone5").height(_temp);
-//				$("#zone6").height(_temp);
-//				$("#zone7").height(_temp);
-//				$("#zone8").height(_temp);
-			},
-			receive : function(event,ui) {}
+				$("#zone2,#zone3,#zone5,#zone6,#zone7,#zone8").css('height','auto');
+				setHeight();
+			}
 		});
+	};
+	
+	setHeight = function(zoneid) {
+		var _temp = 0;
+		if(_temp < $("#zone2").height()) {
+			_temp = $("#zone2").height();
+		}
+		if(_temp < $("#zone3").height()) {
+			_temp = $("#zone3").height();
+		}
+		 $("#zone2,#zone3").css('height',_temp);
+		
+		_temp = 0;
+		if(_temp <= $("#zone5").height()) {
+			_temp = $("#zone5").height();
+		}
+		if(_temp <= $("#zone6").height()) {
+			_temp = $("#zone6").height();
+		}
+		if(_temp <= $("#zone7").height()) {
+			_temp = $("#zone7").height();
+		}
+		if(_temp <= $("#zone8").height()) {
+			_temp = $("#zone8").height();
+		}
+		$("#zone5,#zone6,#zone7,#zone8").css('height',_temp);
 	};
 });
