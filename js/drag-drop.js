@@ -2,41 +2,71 @@ $(function() {
 	uiDragDrop = function(dragObject, zonesInLayout) {
 		var applicationId='';
 		var zonesInLayoutString = zonesInLayout.join(',');
-		
-		// init drag
-		$('.' + dragObject).draggable({
-			connectToSortable: zonesInLayoutString,
+		var _dragOptions = {
 			cursor: "move",
 			helper : function(event){
 				applicationId = $(this).attr('id');
 				return $(this).clone();
 			},
-			stop : function(event,ui) {
-				$(document).off("keydown");
-			}, 
-			drag : function(event,ui) {
-				$(document).on("keydown", function(event){
-					if(event.keyCode === 27) {
-						ui.helper.trigger( "mouseup" );
-					}
-				});
+			start : function( event, ui ) {
+				var _classes = $(this).attr('class');
+				if(_classes.indexOf('ZoneA') > -1) {
+					$('#zone2,#zone3,#zone5,#zone6,#zone7,#zone8').css('border','3px solid red');
+				} else if(_classes.indexOf('ZoneB') > -1) {
+					$('#zone1,#zone4').css('border','3px solid red');
+				}
+			},
+			stop : function( event, ui ) {
+				$('#zone1,#zone2,#zone3,#zone4,#zone5,#zone6,#zone7,#zone8').css('border','1px solid black');
 			}
+			
+		};
+		
+		// init drag
+		$('.' + dragObject).each(function() {
+			var _classes = $(this).attr('class');
+			if(_classes.indexOf('ZoneA') > -1) {
+				_dragOptions.connectToSortable = "#zone1, #zone4";
+			} else if(_classes.indexOf('ZoneB') > -1) {
+				_dragOptions.connectToSortable = "#zone2,#zone3,#zone5,#zone6,#zone7,#zone8";
+			}
+			$(this).draggable(_dragOptions);
 		});
 		
-		// init drop		
-		$(zonesInLayoutString).droppable({
-			accept: ":not(.ui-sortable-helper)",
-			tolerance : 'touch'
-		}).sortable({
+		
+		// init drop
+		$(zonesInLayoutString).droppable().sortable({
 			connectWith: zonesInLayoutString,
-			items: ".application",
 			placeholder: "ui-state-highlight",
+			tolerance : "intersect",
 			cursor: "move",
+			start : function( event, ui )  {
+				// change border color if item doesn't belong to this zone
+				var _classes = ui.item.attr('class');
+				if(_classes.indexOf('ZoneA') > -1) {
+					$('#zone2,#zone3,#zone5,#zone6,#zone7,#zone8').css('border','3px solid red');
+				} else if(_classes.indexOf('ZoneB') > -1) {
+					$('#zone1,#zone4').css('border','3px solid red');
+				}
+			},
 			over : function(event, ui) {
 				$(this).css('height','auto');
 			},
 			out : function(event, ui) {
+				$("#zone2,#zone3,#zone5,#zone6,#zone7,#zone8").css('height','auto');
 				setHeight();
+			},
+			receive : function(event,ui) {
+				var _classes = ui.item.attr('class'); 
+				if($(this).attr('id') == 'zone1' || $(this).attr('id') == 'zone4') {
+					if(_classes.indexOf('ZoneB') > -1) {
+						$(ui.sender).sortable('cancel');
+					}
+				} else {
+					if(_classes.indexOf('ZoneA') > -1) {
+						$(ui.sender).sortable('cancel');
+					}
+				}
 			},
 			stop : function(event, ui) {
 				if(!ui.item.hasClass('application')) {
@@ -44,13 +74,14 @@ $(function() {
 					_item.removeClass("DragObjectPortlet ui-draggable").addClass("application");
 					_item.attr('id', applicationId + "-" + Math.floor(Math.random() * 1000));
 				}
+				$('#zone1,#zone2,#zone3,#zone4,#zone5,#zone6,#zone7,#zone8').css('border','1px solid black');
 				$("#zone2,#zone3,#zone5,#zone6,#zone7,#zone8").css('height','auto');
 				setHeight();
 			}
 		});
 	};
 	
-	setHeight = function(zoneid) {
+	setHeight = function() {
 		var _temp = 0;
 		if(_temp < $("#zone2").height()) {
 			_temp = $("#zone2").height();
