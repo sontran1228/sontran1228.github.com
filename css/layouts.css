@@ -6,7 +6,7 @@
 	height: 80px;
 }
 
-#zone1,#zone2,#zone3,#zone4 {
+.row-fluid {
 	margin-bottom: 10px;
 }
 
@@ -29,6 +29,21 @@
 	border-bottom: 1px solid rgb(192, 184, 95);
 	text-align: center;
 	width: 100%;
+}
+
+.placeholder {
+    height:40px;
+    width:20px;
+    display:inline-block;
+    margin:4px;
+}
+
+.application-vlayout {
+	border-bottom: 1px solid rgb(192, 184, 95);
+	text-align: center;
+	width: 250px;
+	float: left;
+	margin-left: 10px;
 }
 
 .application1 {

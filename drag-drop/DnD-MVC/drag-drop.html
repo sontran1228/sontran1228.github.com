@@ -3,22 +3,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" media="screen" href="../css/bootstrap.css" />
-<link rel="stylesheet" type="text/css" href="../css/layouts.css" />
-<link rel="stylesheet" type="text/css" href="../css/jquery-ui-1.9.2.css" />
-<script type="text/javascript" src="../js/jquery-1.8.3.js"></script>
-<script type="text/javascript" src="../js/bootstrap.js"></script>
-<script type="text/javascript" src="../js/jquery-ui-1.9.2.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="../../css/jquery-ui-1.9.2.css" />
+<link rel="stylesheet" type="text/css" href="../../css/layouts.css" />
+<script type="text/javascript" src="../../js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="../../js/bootstrap.js"></script>
+<script type="text/javascript" src="../../js/jquery-ui-1.9.2.js"></script>
 <script type="text/javascript" src="drag-drop.js"></script>
 <title>In Place Editing</title>
 <script type="text/javascript">
-	$(function() {
-		var zonesInLayout = ['#zone1','#zone2','#zone3', '#zone4', "#zone5", "#zone6", "#zone7", "#zone8"];
+	/* $(function() {
 		uiDragDrop('DragObjectPortlet', zonesInLayout);
-	});
+	}); */
 </script>
 </head>
-<body>
+<body onload="uiDragDrop();">
 	<div id="AddministratorApp">
 		<div style="float: left; margin: 20px;">
 			<p style="font-size: 24px;">Drag these &rarr;</p>
@@ -26,15 +25,15 @@
 	
 		<div id="Administration-ApplicationRegistryPortlet" class="DragObjectPortlet Draggable-ZoneA">
 			<div>
-				<img src="../css/images/application.png" />
+				<img src="../../css/images/application.png" />
 				<div>
 					<label>Application Registry</label>
 				</div>
 			</div>
 		</div>
-		<div id="Administration-AccountRegistryPortlet" class="DragObjectPortlet Draggable-ZoneB">
+		<div id="Administration-AccountRegistryPortlet" class="DragObjectPortlet Draggable-ZoneA">
 			<div>
-				<img src="../css/images/account.png" />
+				<img src="../../css/images/account.png" />
 				<div>
 					<label>Account Management</label>
 				</div>
@@ -43,6 +42,9 @@
 	</div>
 	
 	<p style="text-align: center; font-size: 24px;">Drop here<br/>&darr;</p>
+	<div style="margin-bottom: 15px">
+		<input type="button" value="Zone1: Horizontal" onclick="changeLayout(this);"/>
+	</div>
 	<div id="UIPage" class="container-fluid" style="border: 1px solid red; padding-top: 2px; padding-bottom: 2px;">
 		<!-- <div id="onezone"> -->
 		<div class="row-fluid">
